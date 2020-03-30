@@ -1,14 +1,11 @@
-class Person {
-  String name = 'Ron';
-  int age = 99;
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
 }
 
-double addNumbers(double num1, double num2) {
-  return num1 + num2;
-}
-
-void main () {
-  Person p1 = Person();
-  print(p1.age);
-  print(addNumbers(1, 2));
+class MyApp extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return MaterialApp(home: Text('Hello!')); 
+  }
 }
