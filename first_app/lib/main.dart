@@ -48,6 +48,13 @@ class _MyAppState extends State<MyApp> {
   int _questionIndex = 0;
   int _totalScore = 0;
 
+  void _resetQuiz() {
+    setState(() {
+      this._questionIndex = 0;
+      this._totalScore = 0;
+    });
+  }
+
   void _answerQuestion(int score) {
     setState(() => this._questionIndex++);
 
@@ -69,8 +76,8 @@ class _MyAppState extends State<MyApp> {
           title: Text('My First App'),
         ),
         body: this._questionIndex < _MyAppState._questions.length ?
-              Quiz(question: _questions[_questionIndex], answerQuestion: _answerQuestion) :
-              Result()
+              Quiz(question: _MyAppState._questions[_questionIndex], answerQuestion: this._answerQuestion) :
+              Result(this._totalScore, this._resetQuiz)
       )
     );
   }
