@@ -17,9 +17,7 @@ class _MyAppState extends State<MyApp> {
   int _questionIndex = 0;
 
   void _answerQuestion() {
-    setState(() {
-      this._questionIndex++;
-    });
+    setState(() => this._questionIndex++);
     print(this._questionIndex);
   }
 
@@ -32,11 +30,11 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Question('My First App'),
+          title: Text('My First App'),
         ),
         body: Column(
           children: [
-            Text(questions[_questionIndex]),
+            Question(questions[_questionIndex]),
             RaisedButton(child: Text('Answer 1'), onPressed: _answerQuestion),
             RaisedButton(child: Text('Answer 2'), onPressed: () => print('Answer 2 chosen!')),
             RaisedButton(child: Text('Answer 3'), onPressed: () {
