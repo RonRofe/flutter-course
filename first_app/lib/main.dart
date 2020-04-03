@@ -37,6 +37,8 @@ class _MyAppState extends State<MyApp> {
     print(this._questionIndex);
     if(this._questionIndex < _MyAppState.questions.length) {
       print('We have more questions!');
+    } else {
+      print('No more options');
     }
   }
 
@@ -47,13 +49,13 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('My First App'),
         ),
-        body: Column(
+        body: this._questionIndex < _MyAppState.questions.length ? Column(
           children: [
             Question(_MyAppState.questions[this._questionIndex]['question']),
             ...(_MyAppState.questions[_questionIndex]['answers'] as List<String>)
               .map((String answer) => Answer(this._answerQuestion, answer)).toList()
           ],
-        ),
+        ) : Center(child: Text('You did it!'))
       )
     );
   }
