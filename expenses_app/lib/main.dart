@@ -42,7 +42,12 @@ class MyHomePage extends StatelessWidget {
         Column(
           children: transactions.map(
             (Transaction transaction) => Card(child: Row(children: <Widget>[
-              Container(child: Text(transaction.amount.toString())),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                padding: EdgeInsets.all(10),
+                child: Text(transaction.amount.toString()),
+                decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 2)),
+              ),
               Column(children: <Widget>[
                 Text(transaction.title),
                 Text(transaction.date.toString())
