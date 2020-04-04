@@ -45,13 +45,25 @@ class MyHomePage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 padding: EdgeInsets.all(10),
-                child: Text(transaction.amount.toString()),
-                decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 2)),
+                child: Text(
+                  transaction.amount.toString(),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.purple),
+                ),
+                decoration: BoxDecoration(border: Border.all(color: Colors.purple, width: 2)),
               ),
-              Column(children: <Widget>[
-                Text(transaction.title),
-                Text(transaction.date.toString())
-              ],)
+              Column(
+                children: <Widget>[
+                  Text(
+                    transaction.title,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18,)
+                  ),
+                  Text(
+                    transaction.date.toString(),
+                    style: TextStyle(color: Colors.grey)
+                  )
+                ],
+                crossAxisAlignment: CrossAxisAlignment.start,
+              )
             ],),)
           ).toList(),
         )
